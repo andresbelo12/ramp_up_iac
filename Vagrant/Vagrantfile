@@ -1,0 +1,65 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  
+  #Virtual Machine Box Base
+  config.vm.box = "bento/ubuntu-20.04"
+  config.ssh.insert_key = false
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 1024
+    vb.cpus = 1
+  end
+
+  
+  #Set commands for both virtual machines
+
+  config.vm.provision "shell", path: 'common_settings.sh'
+
+
+  #Set Up UI machine
+  config.vm.define "ui" do |machine|
+    machine.vm.hostname = "movie-analyst-ui"
+
+    machine.vm.network "public_network", ip: "192.168.0.13"
+    machine.vm.network "private_network", ip: "192.168.2.40"
+    machine.vm.network "forwarded_port", guest: 3030, host: 3030
+
+    machine.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+    end
+    machine.vm.provision "shell", privileged: false, path: 'ui_env_vars.sh'
+    machine.vm.provision "shell", privileged: false, path: 'ui_settings.sh'
+  end
+  
+
+  #Set up API machine
+  config.vm.define "api" do |machine|
+    machine.vm.hostname = "movie-analyst-api"
+
+    machine.vm.network "private_network", ip: "192.168.2.41"
+    machine.vm.network "forwarded_port", guest: 3000, host: 3000
+
+    machine.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+    end
+    machine.vm.provision "shell", privileged: false, path: 'api_env_vars.sh'
+    machine.vm.provision "shell", privileged: false, path: 'api_settings.sh'
+  end
+
+  config.vm.define "db" do |machine|
+    machine.vm.hostname = "movie-analyst-db"
+
+    machine.vm.network "private_network", ip: "192.168.2.42"
+    machine.vm.network "forwarded_port", guest: 3306, host: 3380
+
+    machine.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+    end
+    machine.vm.provision "shell", privileged: false, path: 'db_env_vars.sh'
+    machine.vm.provision "shell", privileged: false, path: 'db_settings.sh'
+  end
+
+  
+end
