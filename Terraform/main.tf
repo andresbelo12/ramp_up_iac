@@ -12,3 +12,8 @@ provider "aws" {
   secret_key = var.AWS_SECRET_KEY
   region     = var.AWS_REGION
 }
+
+module "aws" {
+  source = "./aws"
+  AWS_KEY_PAIR = aws_key_pair.ramp-up-devops-andreslopezb-kp.key_name
+}

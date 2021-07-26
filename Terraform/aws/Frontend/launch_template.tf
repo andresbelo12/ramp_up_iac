@@ -21,7 +21,7 @@ resource "aws_launch_template" "frontend_instances" {
 
   instance_type = "t2.micro"
 
-  key_name = aws_key_pair.ramp-up-devops-andreslopezb-kp.key_name
+  key_name = var.AWS_KEY_PAIR
 
   vpc_security_group_ids =  ["${aws_security_group.ramp_up_tf_andreslopezb_frontend.id}"]
 
@@ -34,5 +34,5 @@ resource "aws_launch_template" "frontend_instances" {
     }
   }
 
-  user_data = filebase64("/scripts/ui.sh")
+  user_data = filebase64("${path.module}/scripts/ui.sh")
 }

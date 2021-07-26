@@ -1,3 +1,6 @@
+variable "AWS_KEY_PAIR" {
+}
+
 variable "security_group_id" {
     type = string
     default = "sg-0150ede99ff9e3fa4"
@@ -16,21 +19,6 @@ variable "public0_subnet_id" {
 variable "public1_subnet_id" {
     type = string
     default = "subnet-055c41fce697f9cca"
-}
-
-variable "AWS_ACCESS_KEY" {
-}
-
-variable "AWS_SECRET_KEY" {
-}
-
-variable "AWS_REGION" {
-  default = "eu_west_1"
-}
-
-
-variable "PUBLIC_KEY" {
-  
 }
 
 variable "frontend_sg_ingress_rules_lb" {
