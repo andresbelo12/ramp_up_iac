@@ -1,5 +1,5 @@
-resource "aws_launch_template" "frontend-instances" {
-  name = "frontend-lt-andreslopezb"
+resource "aws_launch_template" "frontend_instances" {
+  name = "ramp_up_frontend_lt_andreslopezb"
 
   block_device_mappings {
     device_name = "/dev/sda1"
@@ -14,7 +14,6 @@ resource "aws_launch_template" "frontend-instances" {
   }
 
   disable_api_termination = true
-
 
   image_id = "ami-0d382e80be7ffdae5"
 
@@ -35,5 +34,5 @@ resource "aws_launch_template" "frontend-instances" {
     }
   }
 
-  //user_data = filebase64("${path.module}/example.sh")
+  user_data = filebase64("/scripts/ui.sh")
 }

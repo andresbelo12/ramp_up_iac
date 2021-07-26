@@ -4,11 +4,11 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm_ssd/ubuntu_focal_20.04_amd64_server_*"]
   }
 
   filter {
-    name   = "virtualization-type"
+    name   = "virtualization_type"
     values = ["hvm"]
   }
   owners = ["099720109477"] # Canonical
@@ -31,7 +31,7 @@ resource "aws_instance" "frontend" {
   }
 
   subnet_id = data.aws_subnet.public0.id
-  vpc_security_group_ids = [data.aws_security_group.frontend-sg.id]
+  vpc_security_group_ids = [data.aws_security_group.frontend_sg.id]
   key_name = aws_key_pair.ramp-up-devops-andreslopezb-kp.key_name
 }
 */
