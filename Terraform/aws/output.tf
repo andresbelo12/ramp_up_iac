@@ -1,3 +1,3 @@
-/*output "frontend-output"{
-    value = module.frontend-iac.frontend-machines
-}*/
+output "database-output"{
+    value = module.database-iac.database_address
+}
