@@ -1,3 +1,3 @@
-output "cluster-output"{
-    value = module.frontend-iac.frontend-machines
+output "database-output"{
+    value = module.aws.database-output
 }

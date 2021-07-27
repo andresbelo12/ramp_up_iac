@@ -4,17 +4,17 @@ variable "AWS_KEY_PAIR" {
 variable "AWS_VPC_ID" {
 }
 
-variable "public0_subnet_id" {
+variable "private0_subnet_id" {
     type = string
-    default = "subnet-0088df5de3a4fe490"
+    default = "subnet-0d74b59773148d704"
 }
 
-variable "public1_subnet_id" {
+variable "private1_subnet_id" {
     type = string
-    default = "subnet-055c41fce697f9cca"
+    default = "subnet-038fa9d9a69d6561e"
 }
 
-variable "frontend_sg_ingress_rules_lb" {
+variable "backend_sg_ingress_rules_lb" {
     type = list(object({
       from_port   = number
       to_port     = number
@@ -28,13 +28,13 @@ variable "frontend_sg_ingress_rules_lb" {
           to_port     = 80
           protocol    = "tcp"
           cidr_block  = "0.0.0.0/0"
-          description = "Rule for SSH connection from admin IP for Frontend Instances"
+          description = "Rule for SSH connection from admin IP for Backend Instances"
         },
         
     ]
 }
 
-variable "frontend_sg_ingress_rules" {
+variable "backend_sg_ingress_rules" {
     type = list(object({
       from_port   = number
       to_port     = number
@@ -47,15 +47,15 @@ variable "frontend_sg_ingress_rules" {
           from_port   = 22
           to_port     = 22
           protocol    = "tcp"
-          cidr_block  = "179.13.155.26/32"
-          description = "Rule for SSH connection from admin IP for Frontend Instances"
+          cidr_block  = "0.0.0.0/0"
+          description = "Rule for SSH connection from admin IP for Backend Instances"
         },
         {
-          from_port   = 3030
-          to_port     = 3030
+          from_port   = 3000
+          to_port     = 3000
           protocol    = "tcp"
           cidr_block  = "0.0.0.0/0"
-          description = "Rule for HTTP connections to Frontend applications"
+          description = "Rule for HTTP connections to Backend applications"
         },
     ]
 }

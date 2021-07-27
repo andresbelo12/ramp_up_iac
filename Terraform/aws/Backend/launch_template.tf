@@ -1,5 +1,5 @@
-resource "aws_launch_template" "frontend_instances" {
-  name = "ramp_up_frontend_lt_andreslopezb"
+resource "aws_launch_template" "backend_instances" {
+  name = "ramp_up_backend_lt_andreslopezb"
 
   block_device_mappings {
     device_name = "/dev/sda1"
@@ -23,7 +23,7 @@ resource "aws_launch_template" "frontend_instances" {
 
   key_name = var.AWS_KEY_PAIR
 
-  vpc_security_group_ids =  ["${aws_security_group.ramp_up_tf_andreslopezb_frontend.id}"]
+  vpc_security_group_ids =  ["${aws_security_group.ramp_up_tf_andreslopezb_backend.id}"]
 
   tag_specifications {
     resource_type = "instance"
@@ -34,5 +34,5 @@ resource "aws_launch_template" "frontend_instances" {
     }
   }
 
-  user_data = filebase64("${path.module}/scripts/ui.sh")
+  user_data = filebase64("${path.module}/scripts/api.sh")
 }

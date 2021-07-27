@@ -1,7 +1,7 @@
 resource "aws_security_group" "ramp_up_tf_andreslopezb_frontend" {
   name        = "ramp_up_tf_andreslopezb_frontend"
   description = "Allow rules for Frontend Instances in Terraform"
-  vpc_id      = data.aws_vpc.ramp_up_vpc.id
+  vpc_id      = var.AWS_VPC_ID
  
   egress {
     from_port        = 0
@@ -34,7 +34,7 @@ resource "aws_security_group_rule" "frontend_ingress_rules" {
 resource "aws_security_group" "ramp_up_tf_andreslopezb_frontend_lb" {
   name        = "ramp_up_tf_andreslopezb_frontend_lb"
   description = "Allow rules for Frontend Load Balancer Instances in Terraform"
-  vpc_id      = data.aws_vpc.ramp_up_vpc.id
+  vpc_id      = var.AWS_VPC_ID
  
   egress {
     from_port        = 0
