@@ -15,15 +15,15 @@ resource "aws_launch_template" "backend_instances" {
 
   disable_api_termination = true
 
-  image_id = "ami-0d382e80be7ffdae5"
+  image_id = var.BACKEND_AMI_ID
 
   instance_initiated_shutdown_behavior = "terminate"
 
-  instance_type = "t2.micro"
+  instance_type = var.BACKEND_INSTANCE_TYPE
 
-  key_name = var.AWS_KEY_PAIR
+  key_name = var.AWS_KEY_PAIR_NAME
 
-  vpc_security_group_ids =  ["${aws_security_group.ramp_up_tf_andreslopezb_backend.id}"]
+  vpc_security_group_ids =  ["${var.BACKEND_SG_ID}"]
 
   tag_specifications {
     resource_type = "instance"
