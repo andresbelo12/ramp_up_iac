@@ -35,7 +35,7 @@ resource "aws_security_group_rule" "backend_http_rule" {
   from_port         = 3000
   to_port           = 3000
   protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["10.1.0.0/16"]
   security_group_id = aws_security_group.ramp_up_tf_andreslopezb_backend.id
 }
 
