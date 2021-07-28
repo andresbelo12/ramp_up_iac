@@ -1,9 +1,9 @@
 resource "aws_lb" "ramp-up-tf-andreslopezb-back-lb" {
     name               = "ramp-up-tf-andreslopezb-back-lb"
-    internal           = false
+    internal           = true
     load_balancer_type = "application"
     security_groups    = [aws_security_group.ramp_up_tf_andreslopezb_backend_lb.id]
-    subnets            = [var.private0_subnet_id, var.private1_subnet_id]
+    subnets            = [var.public0_subnet_id, var.public1_subnet_id]
 
     enable_deletion_protection = false
 

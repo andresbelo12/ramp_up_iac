@@ -12,6 +12,18 @@ variable "AWS_VPC_ID"{
   type        = string
 }
 
+variable "public0_subnet_id"{
+    description = "ID of the first public subnet used for Frontend infrastructure"
+    type        = string
+    default     = "subnet-0088df5de3a4fe490"
+}
+
+variable "public1_subnet_id"{
+    description = "ID of the second public subnet used for Frontend infrastructure"
+    type        = string
+    default     = "subnet-055c41fce697f9cca"
+}
+
 variable "private0_subnet_id"{
     description = "ID of the first private subnet used for Bastion infrastructure"
     type        = string
@@ -126,7 +138,7 @@ variable "backend_sg_ingress_rules_lb" {
           from_port   = 3000
           to_port     = 3000
           protocol    = "tcp"
-          cidr_block  = "0.0.0.0/0"
+          cidr_block  = "10.1.0.0/16"
           description = "Rule for SSH connection from admin IP for Backend Instances"
         },
         
