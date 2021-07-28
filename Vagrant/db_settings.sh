@@ -10,5 +10,5 @@ sudo mysql -uroot -pubuntu -e "FLUSH PRIVILEGES";
 sudo mysql -uroot -pubuntu -e "ALTER USER '$DB_USER'@'localhost' IDENTIFIED WITH mysql_native_password BY '$DB_PASS';"
 
 sudo git clone https://github.com/andresbelo12/movie-analyst-api
-sudo mysql -u$DB_USER -p$DB_PASS $DB_NAME < movie-analyst-api/data_model/table_creation_and_inserts.sql
+sudo mysql -u$DB_USER -p$DB_PASS $DB_NAME < /movie-analyst-api/data_model/table_creation_and_inserts.sql
 
