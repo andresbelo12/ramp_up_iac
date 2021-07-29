@@ -11,6 +11,7 @@ resource "aws_db_instance" "ramp-up-tf-andreslopezb-rds" {
     skip_final_snapshot  = true
 
     db_subnet_group_name = var.RDS_DEFAULT_SUBNET_GROUP
+    vpc_security_group_ids = [aws_security_group.ramp_up_tf_sg_andreslopezb_rds.id]
   
     tags = {
           responsible = "andres.lopezb"

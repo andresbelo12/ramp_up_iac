@@ -1,5 +1,6 @@
 module "database"   {
     source = "./Database"
+    AWS_VPC_ID          = var.AWS_VPC_ID
     RDS_DB_NAME         = var.RDS_DB_NAME
     RDS_DB_USERNAME     = var.RDS_DB_USERNAME
     RDS_PASSWORD        = var.RDS_PASSWORD
