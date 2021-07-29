@@ -1,7 +1,7 @@
 resource "aws_security_group" "ramp_up_tf_sg_andreslopezb_rds" {
   name        = "ramp_up_tf_andreslopezb_rds"
   description = "Allow rules for RDS Database in Terraform"
-  vpc_id      = "vpc-0d2831659ef89870c"
+  vpc_id      = var.AWS_VPC_ID
  
   egress {
     from_port        = 0
