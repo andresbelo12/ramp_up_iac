@@ -1,3 +1,8 @@
+variable "AWS_VPC_ID"{
+  description = "ID of the VPC to be used in the infrastructure"
+  type        = string
+}
+
 variable "RDS_ENGINE"{
     description = "Database Engine to be used in RDS, it could be mysql, postgres, and others"
     type        = string
@@ -27,3 +32,4 @@ variable "RDS_DEFAULT_SUBNET_GROUP" {
     description = "ID of the default subnet group for RDS"
     default     = "default-vpc-0d2831659ef89870c"
 }
+
