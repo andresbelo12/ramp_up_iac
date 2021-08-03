@@ -1,5 +1,5 @@
 data "template_file" "backend_template"{
-    template = file("${path.module}/scripts/api.sh")
+    template = file("${path.module}/provisioning/api.sh")
     vars = {
       PORT    = var.PORT
       DB_NAME = var.RDS_DB_NAME

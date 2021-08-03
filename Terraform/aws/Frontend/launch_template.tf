@@ -1,5 +1,6 @@
+
 data "template_file" "frontend_template"{
-    template = file("${path.module}/scripts/ui.sh")
+    template = file("${path.module}/provisioning/ui.sh")
     vars = {
       BACK_HOST = var.BACK_HOST  
     }
