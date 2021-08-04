@@ -19,4 +19,16 @@ resource "aws_autoscaling_group" "ramp_up_tf_asg_andreslopezb_backend" {
       propagate_at_launch = true
     }
 
+    tag{
+      key                 = "project"
+      value               = "ramp-up-devops"
+      propagate_at_launch = true
+    }
+
+    tag{
+      key                 = "Name"
+      value               = "Backend_AndresLopezB_Terraform"
+      propagate_at_launch = true
+    }
+
 }
