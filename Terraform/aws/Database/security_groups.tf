@@ -23,6 +23,6 @@ resource "aws_security_group_rule" "rds_mysql_rule" {
   from_port         = 3306
   to_port           = 3306
   protocol          = "tcp"
-  cidr_blocks       = ["10.1.80.0/21","10.1.88.0/21"]
+  cidr_blocks       = ["10.1.80.0/21","10.1.88.0/21", "10.1.0.0/21"]
   security_group_id = aws_security_group.ramp_up_tf_sg_andreslopezb_rds.id
 }

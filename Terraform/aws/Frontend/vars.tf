@@ -30,7 +30,7 @@ variable "public1_subnet_id"{
 
 variable "ASG_MAX_SIZE"{
     description = "Amount of max desired machines in the auto scaling group"
-    default     = 3
+    default     = 4
 }
 
 variable "ASG_MIN_SIZE"{

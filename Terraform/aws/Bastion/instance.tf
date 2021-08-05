@@ -1,5 +1,5 @@
 data "template_file" "bastion_template"{
-    template = file("${path.module}/scripts/bastion.sh")
+    template = file("${path.module}/provisioning/bastion.sh")
     vars = {
         DB_NAME = var.RDS_DB_NAME
         DB_USER = var.RDS_DB_USERNAME
