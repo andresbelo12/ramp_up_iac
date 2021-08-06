@@ -1,5 +1,9 @@
 data "template_file" "jenkins_template"{
     template = file("${path.module}/provisioning/jenkins.sh")
+    vars = {
+      AWS_ACCESS_KEY_ID     = var.AWS_ACCESS_KEY
+      AWS_SECRET_ACCESS_KEY = var.AWS_SECRET_KEY
+    }
 }
 
 data "aws_ami" "ubuntu" {
