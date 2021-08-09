@@ -73,15 +73,71 @@ variable "jenkins_sg_ingress_rules" {
           from_port   = 8080
           to_port     = 8080
           protocol    = "tcp"
-          cidr_block  = "0.0.0.0/0"
+          cidr_block  = "179.13.155.26/32"
+          description = "Rule for HTTP connections for Administrator computer"
+        },
+        {
+          from_port   = 8080
+          to_port     = 8080
+          protocol    = "tcp"
+          cidr_block  = "185.199.108.0/22"
+          description = "Rule for HTTP connections for GitHub WebHook"
+        },
+        {
+          from_port   = 8080
+          to_port     = 8080
+          protocol    = "tcp"
+          cidr_block  = "140.82.112.0/20"
+          description = "Rule for HTTP connections for GitHub WebHook"
+        },
+        {
+          from_port   = 8080
+          to_port     = 8080
+          protocol    = "tcp"
+          cidr_block  = "192.30.252.0/22"
+          description = "Rule for HTTP connections for GitHub WebHook"
+        },
+        {
+          from_port   = 8080
+          to_port     = 8080
+          protocol    = "tcp"
+          cidr_block  = "143.55.64.0/20"
+          description = "Rule for HTTP connections for GitHub WebHook"
+        },
+        {
+          from_port   = 50000
+          to_port     = 50000
+          protocol    = "tcp"
+          cidr_block  = "179.13.155.26/32"
           description = "Rule for HTTP connections for Jenkins Instances"
         },
         {
           from_port   = 50000
           to_port     = 50000
           protocol    = "tcp"
-          cidr_block  = "0.0.0.0/0"
-          description = "Rule for HTTP connections for Jenkins Instances"
+          cidr_block  = "185.199.108.0/22"
+          description = "Rule for HTTP connections for GitHub WebHook"
+        },
+        {
+          from_port   = 50000
+          to_port     = 50000
+          protocol    = "tcp"
+          cidr_block  = "140.82.112.0/20"
+          description = "Rule for HTTP connections for GitHub WebHook"
+        },
+        {
+          from_port   = 50000
+          to_port     = 50000
+          protocol    = "tcp"
+          cidr_block  = "192.30.252.0/22"
+          description = "Rule for HTTP connections for GitHub WebHook"
+        },
+        {
+          from_port   = 50000
+          to_port     = 50000
+          protocol    = "tcp"
+          cidr_block  = "143.55.64.0/20"
+          description = "Rule for HTTP connections for GitHub WebHook"
         },
     ]
 }
