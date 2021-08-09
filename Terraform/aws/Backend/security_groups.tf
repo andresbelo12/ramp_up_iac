@@ -39,7 +39,16 @@ resource "aws_security_group_rule" "backend_http_rule" {
   security_group_id = aws_security_group.ramp_up_tf_andreslopezb_backend.id
 }
 
+resource "aws_security_group_rule" "jenkins_ssh_rule" {
 
+  type              = "ingress"
+  description       = "Rule for HTTP connections to Backend applications"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  cidr_blocks       = ["10.1.0.14/32","54.151.74.181/32"]
+  security_group_id = aws_security_group.ramp_up_tf_andreslopezb_backend.id
+}
 
 resource "aws_security_group" "ramp_up_tf_andreslopezb_backend_lb" {
   name        = "ramp_up_tf_andreslopezb_backend_lb"

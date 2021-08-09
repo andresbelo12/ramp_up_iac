@@ -133,6 +133,20 @@ variable "frontend_sg_ingress_rules" {
           cidr_block  = "0.0.0.0/0"
           description = "Rule for HTTP connections for Frontend Instances"
         },
+        {
+          from_port   = 22
+          to_port     = 22
+          protocol    = "tcp"
+          cidr_block  = "10.1.0.14/32"
+          description = "Rule for SSH connection from admin IP for Frontend Instances"
+        },
+        {
+          from_port   = 22
+          to_port     = 22
+          protocol    = "tcp"
+          cidr_block  = "54.151.74.181/32"
+          description = "Rule for SSH connection from admin IP for Frontend Instances"
+        },
     ]
 }
 
